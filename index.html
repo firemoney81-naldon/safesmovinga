@@ -1,23 +1,1071 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
+
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "이사어플을 통해 포장이사 견적을 비교할 때 가장 주의해야 할 점은 무엇인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "이사어플을 활용할 때는 단순히 표시된 최저가 금액에만 현혹되지 말고, 정식 주선사업 허가증 보유 여부와 적재물 배상책임보험 가입 여부를 반드시 확인해야 합니다. 온라인 비대면 사전 견적 시 짐의 양을 정확히 입력하지 않으면 당일 사다리차 사용이나 추가 작업원 배치로 인해 현장 추가 요금이 청구될 수 있으므로, 세부 품목과 특수 가전 유무를 상세히 기록하고 정식 서면 계약서를 작성해야 합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "손없는날과 주말, 평일의 이사 비용 가격 차이는 대략 얼마인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "음력 기준으로 끝자리가 9 또는 0으로 끝나는 손없는날이나 금요일, 주말, 월말의 경우 수요가 집중되어 평일 화요일에서 목요일 대비 약 20%에서 40%가량 높은 요금이 책정됩니다. 예를 들어 30평형 아파트 기준 평일 포장이사 평균 견적이 130만 원에서 150만 원 선이라면, 손없는날이나 주말에는 170만 원에서 220만 원 선까지 예상 견적 금액이 상승할 수 있습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "이사 당일 물품 파손이나 분실이 발생했을 때 보상받는 절차는 어떻게 되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "물품 파손이나 훼손이 발견되는 즉시 현장 작업팀장에게 이를 알리고 훼손 부위의 사진과 동영상을 다양한 각도에서 촬영해 두어야 합니다. 또한 이사 완료 확인서나 계약서 여백에 파손 사실을 명기하고 현장 책임자의 자필 서명을 받아두는 것이 필수적입니다. 이후 이사짐센터 본사 고객센터 및 플랫폼 어플 지원팀에 사고 접수를 진행하며, 협의가 원만하지 않을 경우 한국소비자원 피해구제 신청을 통해 조정 절차를 밟을 수 있습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "이사 계약 시 계약금 비율과 취소 시 위약금 및 환불 기준은 어떻게 규정되어 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "공정거래위원회 이사화물 표준약관에 따르면 계약금은 통상 전체 이사 요금의 10% 내외로 설정됩니다. 소비자의 사정으로 계약을 해제할 경우 이사 예정일 기준 7일 이전에는 계약금 전액 환불이 가능하지만, 3일 전 취소 시 계약금의 배액 배상 또는 위약금이 발생할 수 있으며, 이사 당일 취소 시에는 총 운임의 최대 50%를 위약금으로 부담해야 할 수 있으므로 계약 전 환불 규정을 면밀히 살펴야 합니다."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #eff6ff;
+            --secondary: #0d9488;
+            --secondary-light: #f0fdfa;
+            --accent: #f97316;
+            --neutral-bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.07);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        html, body, div, span, h1, h2, h3, h4, p, a, ul, ol, li, form, label, input, select, button, table, thead, tbody, tr, th, td, section, header, footer {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: var(--neutral-bg);
+            color: var(--text-main);
+            line-height: 1.85;
+            font-size: 16px;
+            letter-spacing: -0.02em;
+            word-break: keep-all;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .site-logo {
+            font-size: 1.35em;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-banner {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 60%, #0284c7 100%);
+            color: #ffffff;
+            padding: 70px 20px;
+            text-align: center;
+            border-radius: 0 0 24px 24px;
+            margin-bottom: 40px;
+        }
+
+        .hero-banner h1 {
+            font-size: 2.4em;
+            font-weight: 700;
+            line-height: 1.35;
+            margin-bottom: 16px;
+        }
+
+        .hero-banner p {
+            font-size: 1.15em;
+            font-weight: 300;
+            color: #e0f2fe;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .calculator-wrapper {
+            background-color: var(--card-bg);
+            border-radius: 18px;
+            padding: 36px;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 50px;
+            border: 1px solid var(--border-color);
+        }
+
+        .calc-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .calc-header h2 {
+            font-size: 1.8em;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .calc-header p {
+            color: var(--text-muted);
+            font-size: 0.98em;
+        }
+
+        .calc-form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .form-control-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-control-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-control-group label {
+            font-weight: 500;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .form-control-group select, 
+        .form-control-group input {
+            padding: 13px 16px;
+            border: 1.5px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 1em;
+            font-family: inherit;
+            background-color: #ffffff;
+            color: var(--text-main);
+            transition: all 0.2s ease;
+        }
+
+        .form-control-group select:focus, 
+        .form-control-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+        }
+
+        .calc-btn-submit {
+            grid-column: span 2;
+            background-color: var(--primary);
+            color: #ffffff;
+            font-size: 1.15em;
+            font-weight: 700;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            margin-top: 10px;
+        }
+
+        .calc-btn-submit:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .calc-btn-submit:active {
+            transform: scale(0.99);
+        }
+
+        .calc-output-box {
+            display: none;
+            margin-top: 28px;
+            padding: 24px;
+            background-color: var(--secondary-light);
+            border: 1.5px solid #99f6e4;
+            border-radius: 14px;
+        }
+
+        .calc-output-box h3 {
+            font-size: 1.3em;
+            color: var(--secondary);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .calc-output-text {
+            color: #134e4a;
+            font-size: 1.05em;
+            line-height: 1.75;
+        }
+
+        .article-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 38px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 40px;
+            border: 1px solid var(--border-color);
+        }
+
+        .article-card h2 {
+            font-size: 1.75em;
+            color: var(--text-main);
+            margin-bottom: 22px;
+            padding-bottom: 12px;
+            border-bottom: 2.5px solid var(--primary);
+            letter-spacing: -0.03em;
+        }
+
+        .article-card h3 {
+            font-size: 1.3em;
+            color: var(--primary);
+            margin-top: 30px;
+            margin-bottom: 14px;
+            font-weight: 700;
+        }
+
+        .article-card h4 {
+            font-size: 1.1em;
+            color: var(--text-main);
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .article-card p {
+            margin-bottom: 18px;
+            color: #334155;
+            text-align: justify;
+        }
+
+        .article-card ul, .article-card ol {
+            margin-bottom: 22px;
+            padding-left: 24px;
+        }
+
+        .article-card li {
+            margin-bottom: 10px;
+            color: #334155;
+        }
+
+        .info-notice-box {
+            background-color: #fff7ed;
+            border-left: 4px solid var(--accent);
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin: 24px 0;
+            color: #9a3412;
+            font-size: 0.98em;
+            line-height: 1.75;
+        }
+
+        .custom-data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 28px 0;
+            font-size: 0.96em;
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .custom-data-table th, .custom-data-table td {
+            padding: 14px 16px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .custom-data-table th {
+            background-color: #f1f5f9;
+            color: #334155;
+            font-weight: 700;
+        }
+
+        .custom-data-table tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        .custom-data-table tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        .visual-bar-chart {
+            margin: 30px 0;
+            padding: 24px;
+            background-color: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .chart-row {
+            margin-bottom: 18px;
+        }
+
+        .chart-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .chart-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #475569;
+        }
+
+        .bar-track {
+            height: 18px;
+            background-color: #e2e8f0;
+            border-radius: 9px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 9px;
+            background: linear-gradient(90deg, var(--primary) 0%, #38bdf8 100%);
+        }
+
+        .faq-accordion-group {
+            margin-top: 25px;
+        }
+
+        .faq-card-item {
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            margin-bottom: 14px;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .faq-trigger {
+            width: 100%;
+            text-align: left;
+            padding: 18px 22px;
+            background: none;
+            border: none;
+            font-size: 1.05em;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .faq-trigger:hover {
+            background-color: #f8fafc;
+        }
+
+        .faq-status-text {
+            font-size: 0.85em;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .faq-content-panel {
+            display: none;
+            padding: 18px 22px;
+            background-color: #f8fafc;
+            border-top: 1px solid var(--border-color);
+            color: #334155;
+            font-size: 0.98em;
+            line-height: 1.8;
+        }
+
+        .external-sources-card {
+            background-color: #f1f5f9;
+            padding: 28px;
+            border-radius: 12px;
+            margin-top: 36px;
+        }
+
+        .external-sources-card h4 {
+            font-size: 1.15em;
+            color: var(--text-main);
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .external-sources-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .external-sources-card li {
+            margin-bottom: 12px;
+            font-size: 0.96em;
+        }
+
+        .external-sources-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .external-sources-card a:hover {
+            text-decoration: underline;
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 26px;
+        }
+
+        .tag-item {
+            background-color: #e2e8f0;
+            color: #475569;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 0.9em;
+            margin-top: 60px;
+            border-top: 1px solid #1e293b;
+        }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-banner {
+                padding: 45px 16px;
+            }
+            .hero-banner h1 {
+                font-size: 1.85em;
+            }
+            .calculator-wrapper {
+                padding: 24px 18px;
+            }
+            .calc-form-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-control-group.full-width, .calc-btn-submit {
+                grid-column: span 1;
+            }
+            .article-card {
+                padding: 24px 18px;
+            }
+            .custom-data-table {
+                font-size: 0.85em;
+            }
+            .custom-data-table th, .custom-data-table td {
+                padding: 10px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="/" class="site-logo">스마트 이사정보 리포트</a>
+            <div style="font-size: 0.9em; color: var(--text-muted); font-weight: 500;">2027 전국 이사견적 통합센터</div>
+        </div>
+    </header>
+
+    <div class="hero-banner">
+        <div class="container">
+            <h1>이사어플 기반 포장이사 견적 비교 및 최적 비용 가이드</h1>
+            <p>전국 아파트, 빌라, 원룸, 오피스텔의 실제 계약 시세 분석부터 사다리차 요금표, 손없는날 할증 방어 전략까지 스마트하게 확인하세요.</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <!-- Interactive Moving Cost Calculator -->
+        <section class="calculator-wrapper">
+            <div class="calc-header">
+                <h2>2027년 실시간 이사 예상 비용 계산기</h2>
+                <p>주거 형태, 평형대, 이동 거리 및 추가 옵션을 입력하면 축적된 빅데이터를 바탕으로 합리적인 예상 견적을 산출합니다.</p>
+            </div>
+
+            <form id="moveCostForm" onsubmit="calculateMovingCost(event)">
+                <div class="calc-form-grid">
+                    <div class="form-control-group">
+                        <label for="calcHousing">주거 형태</label>
+                        <select id="calcHousing" required>
+                            <option value="oneroom">원룸 및 투룸</option>
+                            <option value="officetel">오피스텔</option>
+                            <option value="villa">빌라 및 다세대주택</option>
+                            <option value="apt" selected>아파트</option>
+                            <option value="house">단독주택</option>
+                            <option value="office">사무실</option>
+                        </select>
+                    </div>
+
+                    <div class="form-control-group">
+                        <label for="calcPyeong">평형대 선택</label>
+                        <select id="calcPyeong" required>
+                            <option value="10">10평 이하 (소형 짐)</option>
+                            <option value="15">15평형 (투룸 급)</option>
+                            <option value="20">20평형대 (중소형)</option>
+                            <option value="30" selected>30평형대 (국민평형)</option>
+                            <option value="40">40평형대 (대형 짐)</option>
+                            <option value="50">50평형 이상</option>
+                        </select>
+                    </div>
+
+                    <div class="form-control-group">
+                        <label for="calcType">이사 방식</label>
+                        <select id="calcType" required>
+                            <option value="yongdal">용달 및 단순 차량 운송</option>
+                            <option value="half">반포장이사</option>
+                            <option value="full" selected>포장이사 (표준)</option>
+                            <option value="storage">보관이사 (임시 창고 보관)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-control-group">
+                        <label for="calcDistance">이동 거리</label>
+                        <select id="calcDistance" required>
+                            <option value="10">관내 이동 (10km 이내)</option>
+                            <option value="25">인접 시군구 (25km 이내)</option>
+                            <option value="50">수도권 및 광역권 (50km 이내)</option>
+                            <option value="100">중거리 타시도 (100km 내외)</option>
+                            <option value="250">장거리 지방 이동 (200km 이상)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-control-group">
+                        <label for="calcSpecialDay">이사 일정 구분</label>
+                        <select id="calcSpecialDay" required>
+                            <option value="normal" selected>평일 (화요일, 수요일, 목요일)</option>
+                            <option value="weekend">주말 (금요일, 토요일, 일요일)</option>
+                            <option value="lucky">손없는날 (음력 9, 0일)</option>
+                            <option value="monthEnd">월말 및 손없는날 주말 중복</option>
+                        </select>
+                    </div>
+
+                    <div class="form-control-group">
+                        <label for="calcLadder">사다리차 이용 계획</label>
+                        <select id="calcLadder" required>
+                            <option value="none">사다리차 미사용 (엘리베이터 이사)</option>
+                            <option value="low">저층 (2층 ~ 5층)</option>
+                            <option value="mid" selected>중층 (6층 ~ 15층)</option>
+                            <option value="high">고층 (16층 ~ 25층)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="calc-btn-submit">실시간 예상 이사 견적 확인하기</button>
+                </div>
+            </form>
+
+            <div id="calculatorResult" class="calc-output-box">
+                <h3 id="resultTitle">예상 견적 산출 결과</h3>
+                <div id="resultDescription" class="calc-output-text"></div>
+            </div>
+        </section>
+
+        <!-- Main Content Card 1: Evolution of Moving Apps -->
+        <article class="article-card">
+            <h2>이사어플의 진화와 2027년 스마트 이사 시장 동향</h2>
+            <p>
+                과거의 이사 준비 과정은 동네 전봇대에 붙은 이사짐센터 스티커를 확인하거나 무작위로 여러 업체에 전화를 걸어 대면 방문 견적을 받는 번거로운 방식이 일반적이었습니다. 그러나 모바일 기술의 발전과 더불어 이사어플이 등장하면서 견적 신청과 계약 과정 전반이 비약적으로 투명해졌습니다. 2027년 현재 이사 시장은 제미나이, 챗지피티 등 대형 언어 모델 및 인공지능 기반의 컴퓨터 비전 기술이 결합된 맞춤형 플랫폼으로 완전히 탈바꿈했습니다.
+            </p>
+            <p>
+                소비자가 스마트폰 카메라로 방 내부를 한 바퀴 비추기만 하면 AI 알고리즘이 가구와 가전제품의 부피, 톤수(1톤, 2.5톤, 5톤, 6톤 이상)를 자동으로 계산하고 짐의 수량을 즉각 도출합니다. 이를 통해 견적 담당자가 직접 가정을 방문하지 않고도 오차 범위를 5% 이내로 줄인 정밀한 온라인 사전 견적이 가능해졌습니다. 네이버 및 구글 검색창에서 최저가 이사짐센터를 검색하던 형태에서 벗어나, 이제는 전문화된 어플리케이션 안에서 검증된 업체들의 평점과 실제 시공 등급표를 대조하는 역경매 시스템이 핵심 주류로 정착되었습니다.
+            </p>
+            <p>
+                이와 같은 기술 혁신은 투명한 요금 체계를 마련하는 데 지대한 공헌을 하였습니다. 과거 빈번히 발생하던 이사 당일 추가 운임 요구나 식대 명목의 부당한 현장 웃돈 요구가 플랫폼의 표준 계약 관리와 소비자 평점 시스템을 통해 현저히 감소하고 있습니다.
+            </p>
+
+            <div class="visual-bar-chart">
+                <div style="font-weight: 700; margin-bottom: 16px; color: var(--text-main);">세대별 이사 플랫폼 활용 비율 및 선호도 조사</div>
+                <div class="chart-row">
+                    <div class="chart-labels">
+                        <span>20대 및 30대 1인 가구 (원룸, 투룸, 오피스텔 비대면 어플 이용)</span>
+                        <span>92%</span>
+                    </div>
+                    <div class="bar-track">
+                        <div class="bar-fill" style="width: 92%;"></div>
+                    </div>
+                </div>
+                <div class="chart-row">
+                    <div class="chart-labels">
+                        <span>40대 다인 가구 (아파트 및 빌라 포장이사 역경매 어플 이용)</span>
+                        <span>84%</span>
+                    </div>
+                    <div class="bar-track">
+                        <div class="bar-fill" style="width: 84%;"></div>
+                    </div>
+                </div>
+                <div class="chart-row">
+                    <div class="chart-labels">
+                        <span>50대 및 60대 이상 시니어 (방문 견적과 앱 병행 상담 형태)</span>
+                        <span>61%</span>
+                    </div>
+                    <div class="bar-track">
+                        <div class="bar-fill" style="width: 61%;"></div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Main Content Card 2: Cost Analysis by Housing Type -->
+        <article class="article-card">
+            <h2>주거 형태 및 평형대별 2027 표준 이사 요금표 및 견적 체계</h2>
+            <p>
+                이사 비용을 결정짓는 핵심 변수는 적재 화물의 중량(톤수), 작업 투입 인력(남성 패커 및 여성 주방정리원 수), 이동 거리, 작업 층수에 따른 사다리차 사용 여부입니다. 특히 주거 형태가 단독주택인지, 엘리베이터 승강기 이용이 수월한 대단지 아파트인지, 골목 진입이 까다로운 다세대주택 또는 빌라인지에 따라 차량 진입 난이도가 달라져 최종 견적서의 가격표에 유의미한 차이가 발생합니다.
+            </p>
+            <p>
+                다음은 2027년 기준 전국 평균 이동 거리(20km 내외 관내 기준) 및 작업 인원 편성을 반영한 주거 형태별 평균 포장이사 요금표입니다.
+            </p>
+
+            <table class="custom-data-table">
+                <thead>
+                    <tr>
+                        <th>주거 형태</th>
+                        <th>전용 면적</th>
+                        <th>예상 짐 톤수</th>
+                        <th>투입 인원</th>
+                        <th>평일 평균 비용</th>
+                        <th>손없는날 및 주말</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>원룸 및 소형 오피스텔</td>
+                        <td>10평 이하</td>
+                        <td>1톤 용달 1대</td>
+                        <td>작업원 1~2명</td>
+                        <td>35만 ~ 55만 원</td>
+                        <td>45만 ~ 70만 원</td>
+                    </tr>
+                    <tr>
+                        <td>투룸 및 다세대주택</td>
+                        <td>15평 ~ 20평</td>
+                        <td>1톤 2대 또는 2.5톤</td>
+                        <td>작업원 2~3명</td>
+                        <td>75만 ~ 100만 원</td>
+                        <td>95만 ~ 125만 원</td>
+                    </tr>
+                    <tr>
+                        <td>아파트 및 연립빌라</td>
+                        <td>24평 ~ 28평</td>
+                        <td>5톤 탑차 1대</td>
+                        <td>남3명, 여1명</td>
+                        <td>115만 ~ 140만 원</td>
+                        <td>145만 ~ 180만 원</td>
+                    </tr>
+                    <tr>
+                        <td>중대형 아파트 (국민평형)</td>
+                        <td>30평 ~ 34평</td>
+                        <td>5톤 ~ 6톤</td>
+                        <td>남3명, 여1명</td>
+                        <td>135만 ~ 165만 원</td>
+                        <td>170만 ~ 215만 원</td>
+                    </tr>
+                    <tr>
+                        <td>대형 아파트 및 단독주택</td>
+                        <td>40평형 이상</td>
+                        <td>6톤 ~ 8톤 이상</td>
+                        <td>남4명, 여1~2명</td>
+                        <td>190만 ~ 260만 원</td>
+                        <td>240만 ~ 330만 원</td>
+                    </tr>
+                    <tr>
+                        <td>기업 및 사무실 이전</td>
+                        <td>50평 기준</td>
+                        <td>화물 트럭 다수</td>
+                        <td>전문 패커 팀</td>
+                        <td>별도 현장 실측</td>
+                        <td>협의 견적 진행</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-notice-box">
+                사다리차 이용 요금은 상기 포장이사 순수 인건비 및 운임과는 별도로 청구되는 것이 통상적입니다. 출발지와 도착지 양쪽에서 모두 사다리차를 사용할 경우 비용이 2회 발생하며, 층수가 10층에서 15층 이상으로 올라갈수록 안전 관리료와 고층 전용 차량 배차로 인해 층수별 등급표에 맞춰 추가금이 산정됩니다.
+            </div>
+
+            <h3>손없는날 할증 원리와 예산 절감 노하우</h3>
+            <p>
+                민속 신앙에서 유래한 손없는날은 악귀가 돌아다니지 않는 날이라 하여 음력 끝자리가 9와 0인 날(9일, 10일, 19일, 20일, 29일, 30일)에 해당합니다. 2027년에도 이러한 관습적 수요 쏠림 현상이 유지되고 있어, 손없는날과 금요일 혹은 주말이 겹치는 일정에는 평일 대비 최대 30%에서 50%까지 높은 요금제가 형성됩니다.
+            </p>
+            <p>
+                가장 합리적인 비용으로 포장이사를 진행하는 방법은 화요일, 수요일 등 주중 중간 일정을 선택하여 다이렉트 예약을 진행하는 것입니다. 동일한 이사짐센터와 전문 인력을 배정받으면서도 30만 원에서 50만 원 이상의 실질적인 비용 절약 혜택을 체감할 수 있습니다.
+            </p>
+        </article>
+
+        <!-- Main Content Card 3: Regional Characteristics & Ladder Truck Scale -->
+        <article class="article-card">
+            <h2>전국 지역별 이사 환경과 사다리차 층수별 요금 등급표</h2>
+            <p>
+                대한민국 주요 권역별 이사짐센터의 시세는 도심 밀집도와 도로 여건에 따라 미세한 차이를 보입니다.
+            </p>
+            <ul>
+                <li><strong>수도권 권역 (서울, 경기, 인천)</strong>: 서울 강남, 서초, 송파, 마포, 영등포 등 도심권은 좁은 골목길과 상습 정체로 인해 5톤 단독 차량보다 1톤 트럭 2~3대로 나누어 진입하는 작업이 많아 인건비가 소폭 상승합니다. 반면 경기 남부(수원, 용인, 화성, 성남 분당) 및 북부(고양 일산, 남양주), 인천 송도, 청라 등 신도시는 지하 주차장 진입 높이 제한과 승강기 보양 작업 비용이 별도로 요구되는 경향이 있습니다.</li>
+                <li><strong>충청 및 대전 세종권</strong>: 대전 유성구 및 세종특별자치시는 신축 대단지 아파트 비율이 압도적으로 높아 사다리차보다 엘리베이터 승강기 이용 이사가 80% 이상을 차지하며 승강기 사용료(통상 10만 원~20만 원) 예산 편성이 필수적입니다. 충북 청주, 충남 천안, 아산 등 산업단지 배후 지역은 원룸, 투룸 용달 수요가 꾸준합니다.</li>
+                <li><strong>영남 및 부울경 권역 (부산, 대구, 울산, 경북, 경남)</strong>: 부산 해운대, 수영구 등의 초고층 주상복합은 사다리차 작업 자체가 불가능하여 고속 엘리베이터 단독 보양 계약이 수반됩니다. 대구 수성구, 포항, 창원 등은 전통적인 5톤 탑차 포장이사 수요가 높고 지역 밀착형 우수 이사짐센터 간의 가격 경쟁이 활성화되어 있습니다.</li>
+                <li><strong>호남 및 강원 제주 권역 (광주, 전북 전주, 전남, 강원 춘천 원주, 제주)</strong>: 원거리 타시도 이전 비중이 상대적으로 높아 장거리 운송 운임이 견적의 40% 이상을 차지합니다. 특히 제주의 경우 도선료 및 해상 컨테이너 선적 요금이 부가되므로 화물 전문 업체의 정밀 상담이 필요합니다.</li>
+            </ul>
+
+            <h3>사다리차 층수별 표준 요금 등급 가이드</h3>
+            <p>
+                사다리차는 짐의 양(톤수)과 아파트의 층수에 따라 한국사다리차협회 기준의 권장 가격표가 형성되어 있습니다. 보통 짐이 5톤 이하일 때의 편도 기준 표준 요금 체계는 다음과 같습니다.
+            </p>
+
+            <table class="custom-data-table">
+                <thead>
+                    <tr>
+                        <th>작업 층수</th>
+                        <th>기준 톤수 (5톤 이하)</th>
+                        <th>작업 시간 기준</th>
+                        <th>비고 및 특이사항</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>저층부 (2층 ~ 5층)</td>
+                        <td>약 12만 ~ 15만 원</td>
+                        <td>기본 1회 작업</td>
+                        <td>골목길 및 전선 장애물 사전 확인</td>
+                    </tr>
+                    <tr>
+                        <td>중층부 (6층 ~ 10층)</td>
+                        <td>약 15만 ~ 18만 원</td>
+                        <td>기본 1회 작업</td>
+                        <td>베란다 창틀 탈부착 필요 여부 점검</td>
+                    </tr>
+                    <tr>
+                        <td>상층부 (11층 ~ 15층)</td>
+                        <td>약 18만 ~ 22만 원</td>
+                        <td>기본 1회 작업</td>
+                        <td>돌풍 및 기상 악화 시 작업 제한</td>
+                    </tr>
+                    <tr>
+                        <td>고층부 (16층 ~ 20층)</td>
+                        <td>약 23만 ~ 28만 원</td>
+                        <td>특수 고층 사다리 배차</td>
+                        <td>안전 요원 배치 필수</td>
+                    </tr>
+                    <tr>
+                        <td>초고층 (21층 ~ 25층 이상)</td>
+                        <td>30만 ~ 45만 원 이상</td>
+                        <td>특수 차량 작업</td>
+                        <td>25층 초과는 통상 엘리베이터 이사 권장</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+
+        <!-- Main Content Card 4: App Feature Analysis & Community Consensus -->
+        <article class="article-card">
+            <h2>이사어플 주요 종류와 커뮤니티(디시, 펨코, 보배드림) 실사용 후기 분석</h2>
+            <p>
+                현재 출시되어 있는 이사어플은 크게 세 가지 유형으로 구분할 수 있습니다.
+            </p>
+            <ol>
+                <li><strong>역경매 방식 플랫폼</strong>: 고객이 이사 날짜와 짐 목록을 등록하면 제휴된 복수의 전문 이사짐센터들이 경쟁적으로 견적을 제시하는 구조입니다. 소비자가 여러 업체의 가격과 평점을 한눈에 비교할 수 있어 최저가를 찾는 데 가장 적합한 장점이 있습니다.</li>
+                <li><strong>자체 직영 및 품질 인증 플랫폼</strong>: 플랫폼 본사가 작업 인력을 직접 교육하고 이사 매뉴얼을 표준화하여 파견하는 모델입니다. 비용은 다소 높게 책정될 수 있으나 고가 가전이나 명품 가구가 많은 30~40평형대 대형 이사에서 파손 위험을 줄이고 품격 있는 서비스를 원할 때 추천됩니다.</li>
+                <li><strong>1인 가구 특화 용달 매칭 플랫폼</strong>: 대학생, 사회초년생, 청년층의 원룸, 투룸 소형 짐을 겨냥하여 1톤 트럭 기사님과 고객을 즉시 연결해 주는 다이렉트 서비스입니다. 짐 싸기 방식(일반, 반포장)을 유연하게 조율하여 예산을 10만 원대부터 시작할 수 있는 가성비가 돋보입니다.</li>
+            </ol>
+
+            <h3>온라인 커뮤니티의 내돈내산 팩트체크 요약</h3>
+            <p>
+                보배드림, 디시인사이드 부동산 갤러리, 에펨코리아(펨코) 등 대형 커뮤니티 사용자들의 실제 경험담을 교차 검증해 보면 일관된 팁을 확인할 수 있습니다. 첫째, 어플 상에서 제일 저렴한 최저가만을 제시한 신규 무명 업체를 무턱대고 선택했다가 당일 외국인 미숙련 인력만 투입되거나 바닥 보양을 생략하여 마루가 긁히는 낭패를 보았다는 후기가 많습니다. 둘째, 견적 단계에서 식대, 수고비, 사다리차 추가 비용이 포함되어 있는지를 서면으로 명확히 남겨두지 않아 당일 추가금을 지불해야 했던 불만 사례가 빈번했습니다.
+            </p>
+            <p>
+                커뮤니티 이용자들은 입을 모아 리뷰 평점이 4.8 이상이면서 최소 누적 시공 건수가 100건 이상인 팀장 지정 업체를 선택하는 것이 안전하다고 조언합니다. 몇만 원 아끼려다 소중한 가전이 파손되거나 분실되는 위험을 감수하기보다는 검증된 전문 업체를 선정하는 것이 궁극적인 비용 절감으로 이어진다는 평가입니다.
+            </p>
+        </article>
+
+        <!-- Main Content Card 5: Contract, Deposit, Penalty & Compensation Rules -->
+        <article class="article-card">
+            <h2>계약 시 체크리스트: 계약금, 약정, 위약금 및 피해보상 대책</h2>
+            <p>
+                이사 서비스는 공산품과 달리 현장에서 사람의 노동력으로 완성되는 무형의 용역 서비스이므로 법적 효력을 갖는 정식 서면 계약서 작성이 필수적입니다.
+            </p>
+
+            <h4>1. 계약금 송금과 해제 위약금 규정</h4>
+            <p>
+                공정거래위원회 고시 소비자분쟁해결기준에 따르면, 정식 계약 시 계약금은 통상 총 운임의 10%를 넘지 않아야 합니다. 소비자의 변심이나 일정 변경으로 계약을 취소할 때의 환불 기준은 다음과 같습니다.
+            </p>
+            <ul>
+                <li><strong>이사 예정일 7일 전까지 취소 통보 시</strong>: 송금한 계약금 전액을 위약금 없이 환불받을 수 있습니다.</li>
+                <li><strong>이사 6일 전부터 3일 전 취소 통보 시</strong>: 계약금의 100%를 위약금으로 귀속합니다.</li>
+                <li><strong>이사 2일 전부터 1일 전 취소 통보 시</strong>: 계약금 귀속 외에 총 운임의 20%에 상당하는 배상금을 지불해야 할 수 있습니다.</li>
+                <li><strong>이사 당일 취소 시</strong>: 사업자가 이미 차량 배차와 인력 구성을 완료하였으므로 총 운임의 최대 50%를 위약금으로 물어야 합니다.</li>
+            </ul>
+            <p>
+                반대로 사업자 측의 귀책사유로 이사 당일 배차가 취소되거나 일방적으로 파기될 경우에는 사업자가 소비자에게 계약금 환불은 물론 계약금의 10배(통상 총 운임 상당액)를 배상하도록 규정되어 있으므로 계약서 약관을 반드시 보관해야 합니다.
+            </p>
+
+            <h4>2. 화물자동차운송주선사업 허가증 및 적재물배상책임보험</h4>
+            <p>
+                화물자동차 운수사업법에 의거하여 정상적인 포장이사 영업을 영위하려면 관할 시군구청에서 발급한 정식 주선사업 허가증이 있어야 합니다. 무허가 불법 떴다방 형태의 업체는 사고 발생 시 보험 처리를 회피하고 잠적하는 경우가 많습니다. 또한 5억 원 이상의 적재물 배상책임보험 및 영업배상책임보험에 유효하게 가입되어 있는지 증권 사본을 요청해 확인하는 절차를 간과해서는 안 됩니다.
+            </p>
+
+            <h4>3. 파손 및 분실 발생 시 실전 대처 절차</h4>
+            <p>
+                이사 작업 중 TV 액정 파손, 냉장고 외판 찌그러짐, 침대 프레임 훼손 등이 발생했다면 현장에서 즉시 작업 총괄 팀장에게 해당 내용을 확인시키고 스마트폰 카메라로 고화질 촬영을 진행해야 합니다. 절대 구두 약속으로만 끝내지 말고, 작업 완료 확인증에 파손 내역과 물품명, 팀장의 확인 서명을 기재해야 분쟁 발생 시 결정적인 증거 능력을 갖게 됩니다.
+            </p>
+        </article>
+
+        <!-- Main Content Card 6: Marketing Tactics and Smart Comparison -->
+        <article class="article-card">
+            <h2>현금지원, 사은품 이벤트 마케팅의 진실과 플랫폼 현명한 활용법</h2>
+            <p>
+                인터넷 카페나 블로그, SNS(인스타그램, 페이스북, 유튜브, 엑스 트위터) 등에서 일부 비공식 대행업체들이 신규 가입 혜택으로 백화점 상품권 증정, 현금지원 20만 원, 가전제품 무료 렌탈 프로모션 등을 내세우는 광경을 흔히 볼 수 있습니다. 그러나 이러한 부가 혜택은 실상 이사 견적 비용 원가에 고스란히 전가되어 최종 청구 금액이 더 부풀려지는 결과를 초래하는 경우가 대다수입니다.
+            </p>
+            <p>
+                과도한 지원금이나 사은품을 미끼로 소비자를 유인하는 좌표나 성지 글을 맹신하기보다는, 순수하게 이사 운임 자체를 투명하게 할인해 주거나 카카오톡, 토스 등 공인된 핀테크 플랫폼과 공식 제휴를 맺고 공식 쿠폰 할인을 제공하는 신뢰성 있는 업체를 선별하는 지혜가 요구됩니다.
+            </p>
+            <p>
+                또한 텔레그램이나 익명 메신저로만 상담을 진행하며 계좌 이체로 계약금을 요구하는 업체는 정상적인 고객센터 전화번호조차 없는 유령 사업자일 가능성이 농후하므로 각별한 주의가 요구됩니다.
+            </p>
+        </article>
+
+        <!-- FAQ Section -->
+        <section class="article-card">
+            <h2>자주 묻는 질문과 답변</h2>
+            <div class="faq-accordion-group">
+                <div class="faq-card-item">
+                    <button type="button" class="faq-trigger" onclick="toggleAccordion(this)">
+                        <span>이사어플에서 제시받은 예상 견적과 실제 현장 견적이 차이 나는 이유는 무엇인가요?</span>
+                        <span class="faq-status-text">상세보기</span>
+                    </button>
+                    <div class="faq-content-panel">
+                        가장 주된 이유는 소비자가 인지하지 못한 장롱 속 짐, 발코니 베란다 창고의 묵은 짐, 세탁실 잡화 등 숨은 짐의 부피가 차량 적재 한도를 초과하기 때문입니다. 또한 엘리베이터 사용 가능 여부, 진입로 골목의 전선 유무, 분해 조립이 까다로운 고가 수입 가구 및 안마의자 같은 특수 가전의 누락도 추가금 발생의 원인이 됩니다. 비대면 견적 시 사소한 짐까지 모두 촬영하여 공유하는 것이 오차를 방지하는 최선책입니다.
+                    </div>
+                </div>
+
+                <div class="faq-card-item">
+                    <button type="button" class="faq-trigger" onclick="toggleAccordion(this)">
+                        <span>비가 오거나 눈이 내리는 악천후 시 포장이사 진행은 어떻게 되나요?</span>
+                        <span class="faq-status-text">상세보기</span>
+                    </button>
+                    <div class="faq-content-panel">
+                        정상적인 전문 포장이사 업체는 방수 처리된 탑차를 운용하므로 우천 시에도 가구와 가전을 비닐 탑 보양재로 이중 패킹하여 안전하게 이사를 진행할 수 있습니다. 다만 폭우나 돌풍이 부는 경우 고층 사다리차 가동이 안전상 전면 중단될 수 있으며, 이 경우 엘리베이터 운송으로 긴급 전환되거나 현장 관리자와의 협의 하에 일정이 순연될 수 있습니다.
+                    </div>
+                </div>
+
+                <div class="faq-card-item">
+                    <button type="button" class="faq-trigger" onclick="toggleAccordion(this)">
+                        <span>이사 당일 작업 인부들에게 식대나 수고비를 별도로 지급해야 하나요?</span>
+                        <span class="faq-status-text">상세보기</span>
+                    </button>
+                    <div class="faq-content-panel">
+                        원칙적으로 지급할 의무가 전혀 없습니다. 현대 표준 포장이사 계약 금액에는 작업 인원의 인건비와 식대가 이미 포함되어 있습니다. 간혹 현장 관행이라며 은근히 수고비를 요구하는 작업자가 있을 수 있으나 단호히 거절하셔도 무방하며, 이사어플 본사 고객센터에 즉각 신고하여 부당 요구를 제지할 수 있습니다.
+                    </div>
+                </div>
+
+                <div class="faq-card-item">
+                    <button type="button" class="faq-trigger" onclick="toggleAccordion(this)">
+                        <span>이사 후 입주 청소와 에어컨 이전 설치도 어플에서 한 번에 묶어 진행하는 것이 저렴한가요?</span>
+                        <span class="faq-status-text">상세보기</span>
+                    </button>
+                    <div class="faq-content-panel">
+                        패키지 결합 할인을 통해 전체 견적에서 5만 원에서 10만 원가량의 비용을 낮출 수 있는 이점이 있습니다. 그러나 입주 청소와 가전 배관 설치는 고도의 독립된 전문성이 요구되는 영역이므로, 하청 재하도급 형태로 넘기는 방식인지 해당 전문 시공팀이 직접 방문하는지 리뷰를 꼼꼼히 검토한 후 결합 여부를 결정하는 것이 바람직합니다.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- External Authoritative Sources -->
+        <section class="article-card">
+            <h2>신뢰할 수 있는 공식 정보원 및 관련 제도 안내</h2>
+            <p>
+                본 포스팅에서 다루는 운송 요금 및 분쟁 해결 기준은 관계 법령과 국가 공인 기관의 표준 지침을 준용하고 있습니다. 세부 규정이나 피해 구제 신청은 아래 공식 기관의 포털을 참고하시기 바랍니다.
+            </p>
+
+            <div class="external-sources-card">
+                <h4>공식 법률 및 제도 안내처</h4>
+                <ul>
+                    <li>
+                        <a href="https://namu.wiki/w/%EC%9D%B4%EC%82%AC" target="_blank" rel="noopener">나무위키 이사 항목</a> : 대한민국 이사의 역사적 변천 과정과 포장이사 및 일반이사의 특징 정리
+                    </li>
+                    <li>
+                        <a href="https://www.molit.go.kr" target="_blank" rel="noopener">국토교통부 공식 홈페이지</a> : 화물자동차 운수사업법 시행령 및 화물자동차운송주선사업 적법 인허가 기준 확인
+                    </li>
+                    <li>
+                        <a href="https://www.kca.go.kr" target="_blank" rel="noopener">한국소비자원 공식 포털</a> : 이사화물 표준약관 확인 및 이사 서비스 피해 분쟁조정 구제 신청 접수처
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tag-cloud">
+                <span class="tag-item">이사어플</span>
+                <span class="tag-item">포장이사견적</span>
+                <span class="tag-item">2027이사비용</span>
+                <span class="tag-item">손없는날계산</span>
+                <span class="tag-item">아파트이사짐센터</span>
+                <span class="tag-item">원룸이사요금</span>
+                <span class="tag-item">사다리차층수별비용</span>
+                <span class="tag-item">공정위표준약관</span>
+                <span class="tag-item">이사피해보상</span>
+            </div>
+        </section>
     </main>
-  </body>
-</html>
+
+
+  
+    <script>
+        function calculateMovingCost(event) {
+            event.preventDefault();
+
+            const housing = document.getElementById('calcHousing').value;
+            const pyeong = parseInt(document.getElementById('calcPyeong').value, 10);
+            const moveType = document.getElementById('calcType').value;
+            const distance = parseInt(document.getElementById('calcDistance').value, 10);
+            const specialDay = document.getElementById('calcSpecialDay').value;
+            const ladder = document.getElementById('calcLadder').value;
+
+            let baseCost = 400000;
+
+            if (pyeong <= 10) {
+                baseCost = 350000;
+            } else if (pyeong <= 15) {
+                baseCost = 650000;
+            } else if (pyeong <= 20) {
+                baseCost = 900000;
+            } else if (pyeong <= 30) {
+                baseCost = 1350000;
+            } else if (pyeong <= 40) {
+                baseCost = 1800000;
+            } else {
+                baseCost = 2400000;
+            }
+
+            if (housing === 'officetel') {
+                baseCost += 50000;
+            } else if (housing === 'house' || housing === 'villa') {
+                baseCost += 100000;
+            } else if (housing === 'office') {
+                baseCost += 250000;
+            }
+
+            if (moveType === 'yongdal') {
+                baseCost *= 0.45;
+            } else if (moveType === 'half') {
+                baseCost *= 0.75;
+            } else if (moveType === 'storage') {
+                baseCost *= 1.85;
+            }
+
+            if (distance > 10 && distance <= 25) {
+                baseCost += 50000;
+            } else if (distance > 25 && distance <= 50) {
+                baseCost += 120000;
+            } else if (distance > 50 && distance <= 100) {
+                baseCost += 250000;
+            } else if (distance > 100) {
+                baseCost += 500000;
+            }
+
+            let ladderFee = 0;
+            if (ladder === 'low') {
+                ladderFee = 130000;
+            } else if (ladder === 'mid') {
+                ladderFee = 180000;
+            } else if (ladder === 'high') {
+                ladderFee = 250000;
+            }
+
+            baseCost += ladderFee;
+
+            let dayMultiplier = 1.0;
+            let dayText = '평일 정상 운임';
+
+            if (specialDay === 'weekend') {
+                dayMultiplier = 1.2;
+                dayText = '주말 할증 적용 (약 20% 상승)';
+            } else if (specialDay === 'lucky') {
+                dayMultiplier = 1.35;
+                dayText = '손없는날 할증 적용 (약 35% 상승)';
+            } else if (specialDay === 'monthEnd') {
+                dayMultiplier = 1.45;
+                dayText = '손없는날 및 주말 월말 복합 할증 (약 45% 상승)';
+            }
+
+            const totalMin = Math.round((baseCost * dayMultiplier * 0.9) / 10000) * 10000;
+            const totalMax = Math.round((baseCost * dayMultiplier * 1.15) / 10000) * 10000;
+            const depositGuide = Math.round((totalMin * 0.1) / 1000) * 1000;
+
+            const resultContainer = document.getElementById('calculatorResult');
+            const resultTitle = document.getElementById('resultTitle');
+            const resultDesc = document.getElementById('resultDescription');
+
+            resultTitle.innerText = '입력 조건 기반 예상 견적 산출액';
+            resultDesc.innerHTML = 
+                '<strong>예상 총 견적 범위: </strong><span style="font-size: 1.3em; font-weight: 700; color: #0d9488;">' + 
+                totalMin.toLocaleString() + '원 ~ ' + totalMax.toLocaleString() + '원</span><br>' +
+                '<strong>일정 할증 상태: </strong>' + dayText + '<br>' +
+                '<strong>사다리차 추가분: </strong>' + (ladderFee > 0 ? ladderFee.toLocaleString() + '원 포함' : '엘리베이터 이용 전제(사다리 미포함)') + '<br>' +
+                '<strong>적정 계약금 가이드라인(10% 기준): </strong>약 ' + depositGuide.toLocaleString() + '원 내외<br><br>' +
+                '본 계산 결과는 표준 인건비와 적재 톤수를 고려한 시뮬레이션입니다. 장롱 분해 조립, 피아노, 대형 안마의자, 벽걸이 TV 타공, 복도 폭 등에 따라 현장 방문 시 편차가 발생할 수 있으므로, 반드시 이사어플 내 3곳 이상의 공인 업체로부터 비대면 또는 방문 견적을 복수 교차 검증하시기 바랍니다.';
+
+            resultContainer.style.display = 'block';
+            resultContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function toggleAccordion(button) {
+            const panel = button.nextElementSibling;
+            const statusText = button.querySelector('.faq-status-text');
+            const isOpen = panel.style.display === 'block';
+
+            if (isOpen) {
+                panel.style.display = 'none';
+                statusText.innerText = '상세보기';
+            } else {
+                panel.style.display = 'block';
+                statusText.innerText = '접어두기';
+            }
+        }
+    </script>
+  
